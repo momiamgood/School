@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Lesson extends Model
 {
     use HasFactory;
+
+    public function getAllLessonHomeworks()
+    {
+        return Homework::find('lesson_id', $this->id);
+    }
 }
