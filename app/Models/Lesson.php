@@ -11,6 +11,6 @@ class Lesson extends Model
 
     public function getAllLessonHomeworks()
     {
-        return Homework::find('lesson_id', $this->id);
+        return Homework::all();
     }
 }
