@@ -11,6 +11,6 @@ class Lesson extends Model
 
     public function getAllLessonHomeworks()
     {
-        return Homework::all();
+        return $this->hasMany(Homework::class);
     }
 }
