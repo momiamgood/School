@@ -17,6 +17,17 @@ class CourseController extends Controller
         ]);
     }
 
+    public function store(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $course = new Course();
+            $course->name = $request->input('name');
+            $course->save();
+            return redirect()->route('courses');
+        } else
+            return view('course.create');
+    }
+
     public function show(string $id): View
     {
 
