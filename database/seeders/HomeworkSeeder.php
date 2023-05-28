@@ -20,8 +20,8 @@ class HomeworkSeeder extends Seeder
 
         DB::table('homework')->insert([
             'disc' => Str::random(50),
-            'lesson_id' => Lesson::all('id')->random()->id,
-            'user_id' => User::all('id')->random()->id,
+            'lesson_id' => Lesson::all()->random()->id,
+            'user_id' => User::all()->random()->id,
         ]);
     }
 
