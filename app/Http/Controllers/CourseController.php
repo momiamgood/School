@@ -9,6 +9,8 @@ use Illuminate\View\View;
 class CourseController extends Controller
 {
 
+
+
     public function index(): View{
         return view('course.index', [
            'courses' => Course::all(),
@@ -17,8 +19,11 @@ class CourseController extends Controller
 
     public function show(string $id): View
     {
+
+
         return view('course.profile', [
-            'course' => Course::findOrFail($id)
+            'course' => Course::findOrFail($id),
+            'lessons' => Course::findOrFail($id)->getAllLesson,
         ]);
     }
 }

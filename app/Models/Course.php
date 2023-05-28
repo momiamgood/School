@@ -14,6 +14,9 @@ class Course extends Model
         'name',
     ];
 
+    /*public function lessons(){
+        return Lesson::all()-where()
+    }*/
     public function getAllLesson()
     {
         return $this->hasMany(Lesson::class);

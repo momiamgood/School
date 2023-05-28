@@ -9,7 +9,7 @@ class Lesson extends Model
 {
     use HasFactory;
 
-    public function getAllLessonHomeworks()
+    public function getAllHomeworks()
     {
         return $this->hasMany(Homework::class);
     }
