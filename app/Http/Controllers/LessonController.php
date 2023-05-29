@@ -32,7 +32,7 @@ class LessonController extends Controller
                     $path = $file->storeAs('public/', $fileNameToStore);
                     $model->path = $path;
                     $model->filename = $filenameWithExt;
-                    $model->lesson_id = $this->id;
+                    $model->lesson_id = $lesson->id;
                     $model->save();
                 }
             }
