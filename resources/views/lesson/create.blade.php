@@ -3,7 +3,7 @@
 @section('main_content')
     <h1>Добавление урока</h1>
 
-    <form method="post" action="/lesson/create">
+    <form method="post" action="/lesson/create" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label class="form-label">Выберите курс</label>
@@ -12,10 +12,12 @@
                     <option value="{{$course->id}}">{{ $course->name }}</option>
                 @endforeach
             </select>
-            <label class="form-label">название урока</label>
+            <label class="form-label">Название:</label>
             <input type="text" class="form-control" name="name" >
-            <label class="form-label">Описпние</label>
+            <label class="form-label">Описание</label>
             <input type="text" class="form-control" name="text" >
+            <label class="form-label">Дополинительные материалы</label>
+            <input type="file" class="form-control" name="file" multiple>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

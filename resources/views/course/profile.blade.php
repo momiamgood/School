@@ -1,10 +1,5 @@
 @extends('../layout')
 
 @section('main_content')
-    <h1>Уроки</h1>
-
-    @foreach($lessons as $lesson)
-        <p>Название урока: <a href="/lesson/{{$lesson->id}}"><b>{{ $lesson->name }}</b></a></p>
-
-    @endforeach
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis itaque sint voluptatum? Accusamus, consequatur, deleniti, fuga incidunt ipsam ipsum itaque labore nihil pariatur perferendis praesentium sit suscipit voluptatibus voluptatum.
 @endsection

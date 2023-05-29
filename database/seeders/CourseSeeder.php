@@ -16,6 +16,7 @@ class CourseSeeder extends Seeder
     {
         DB::table('courses')->insert([
             'name' => Str::random(10),
+            'img' => Str::random(10)
         ]);
     }
 }

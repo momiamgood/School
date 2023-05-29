@@ -13,6 +13,7 @@ class Course extends Model
 
     protected $fillable = [
         'name',
+        'img'
     ];
 
     /*public function lessons(){
@@ -22,9 +23,6 @@ class Course extends Model
     {
         return $this->hasMany(Lesson::class);
     }
-
-
-
 
 
 }

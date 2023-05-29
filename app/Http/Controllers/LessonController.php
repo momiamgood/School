@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\File;
 use App\Models\Homework;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
@@ -18,6 +19,24 @@ class LessonController extends Controller
             $lesson->name = $request->input('name');
             $lesson->text = $request->input('text');
             $lesson->course_id = $request->input('course_id');
+
+            if($request->hasFile('file'))
+            {
+                $files = $request->allFiles();
+                foreach ($files as $file) {
+                    $model = new File();
+                    $filenameWithExt = $file->getClientOriginalName();
+                    $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                    $extention = $file->extension();
+                    $fileNameToStore = "files/".$filename."_".time().".".$extention;
+                    $path = $file->storeAs('public/', $fileNameToStore);
+                    $model->path = $path;
+                    $model->filename = $filenameWithExt;
+                    $model->lesson_id = $this->id;
+                    $model->save();
+                }
+            }
+
             $lesson->save();
             return redirect()->route('courses');
         } else

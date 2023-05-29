@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('path');
             $table->string('filename');
-            $table->foreignId('lesson_id')->references('id')->on('lessons');
-            $table->foreignId('homework_id')->references('id')->on('homework');
+            $table->foreignId('lesson_id')->nullable()->references('id')->on('lessons');
+            $table->foreignId('homework_id')->nullable()->references('id')->on('homework');
         });
     }
 

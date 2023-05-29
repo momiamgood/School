@@ -38,15 +38,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Route::get('/course/{}', CourseController::class);
+
 
 
 // Курсы
 
 Route::match(['get','post'],'/course/add', [CourseController::class, 'store']);
 Route::controller(CourseController::class)->group(function () {
-    Route::get('/course/{id}', 'show');
-    Route::get('/course/', 'index')->name('courses');
+    Route::get('/course/{id}', 'show')->name('course');
+    Route::get('course/', 'index')->name('courses');
 });
 // Уроки
 Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store']);

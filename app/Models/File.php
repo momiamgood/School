@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class File extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    
+    protected $casts = [
+        'file' => 'array',
+    ];
+
+    protected $fillable = [
+        'path',
+        'filename',
+        'lesson_id',
+        'homework_id'
+    ];
 }
