@@ -13,7 +13,7 @@
 
     @auth
     <h2>Добавить ответ</h2>
-    <form method="post" action="/lesson/show">
+    <form method="post" >
         @csrf
         <div class="mb-3">
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">

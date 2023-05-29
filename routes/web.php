@@ -51,7 +51,7 @@ Route::controller(CourseController::class)->group(function () {
 // Уроки
 Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store']);
 Route::controller(LessonController::class)->group(function () {
-    Route::get('/lesson/{id}', 'show');
+    Route::match(['get','post'],'/lesson/{id}', 'show');
 
     //Route::get('/course/', 'index');
     //Route::post('/orders', 'store');
