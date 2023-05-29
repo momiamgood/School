@@ -17,7 +17,7 @@
             <label class="form-label">Описание</label>
             <input type="text" class="form-control" name="text" >
             <label class="form-label">Дополинительные материалы</label>
-            <input type="file" class="form-control" name="file" multiple>
+            <input type="file" name="files[]" class="form-control" name="file" multiple>
             <input type="hidden" name="lesson_id" value="">
 
         </div>

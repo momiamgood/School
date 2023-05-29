@@ -21,10 +21,11 @@ class LessonController extends Controller
             $lesson->course_id = $request->input('course_id');
             $lesson->save();
 
-            if($request->hasFile('file'))
+            $files = [];
+            if($request->hasFile('files'))
             {
-                $files = $request->allFiles();
-                foreach ($files as $file) {
+                $files[] = $request->allFiles();
+                foreach ($request->file('files') as $file) {
                     $model = new File();
                     $filenameWithExt = $file->getClientOriginalName();
                     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
