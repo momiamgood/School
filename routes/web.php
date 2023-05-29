@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminsController;
+
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -41,9 +42,18 @@ Route::middleware('auth')->group(function () {
 
 
 // Курсы
+
+Route::match(['get','post'],'/course/add', [CourseController::class, 'store']);
 Route::controller(CourseController::class)->group(function () {
     Route::get('/course/{id}', 'show');
-    Route::get('/course/', 'index');
+    Route::get('/course/', 'index')->name('courses');
+});
+// Уроки
+Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store']);
+Route::controller(LessonController::class)->group(function () {
+    Route::match(['get','post'],'/lesson/{id}', 'show');
+
+    //Route::get('/course/', 'index');
     //Route::post('/orders', 'store');
 });
 require __DIR__.'/auth.php';

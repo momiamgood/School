@@ -8,12 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
 
+    public $timestamps = false;
     use HasFactory;
 
     protected $fillable = [
         'name',
     ];
 
+    /*public function lessons(){
+        return Lesson::all()-where()
+    }*/
     public function getAllLesson()
     {
         return $this->hasMany(Lesson::class);

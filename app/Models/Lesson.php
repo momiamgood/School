@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Lesson extends Model
 {
     use HasFactory;
-
-    public function getAllLessonHomeworks()
+    public $timestamps = false;
+    public function getAllHomeworks()
     {
         return $this->hasMany(Homework::class);
     }
