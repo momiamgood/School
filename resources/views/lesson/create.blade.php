@@ -19,6 +19,7 @@
             <label class="form-label">Дополинительные материалы</label>
             <input type="file" class="form-control" name="file" multiple>
             <input type="hidden" name="lesson_id" value="">
+
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

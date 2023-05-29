@@ -19,6 +19,7 @@ class LessonController extends Controller
             $lesson->name = $request->input('name');
             $lesson->text = $request->input('text');
             $lesson->course_id = $request->input('course_id');
+            $lesson->save();
 
             if($request->hasFile('file'))
             {
@@ -37,7 +38,7 @@ class LessonController extends Controller
                 }
             }
 
-            $lesson->save();
+
             return redirect()->route('courses');
         } else
             return view('lesson.create',[

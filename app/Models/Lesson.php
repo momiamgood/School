@@ -17,7 +17,7 @@ class Lesson extends Model
         'course_id'
     ];
 
-    public function getAllLessonHomeworks()
+    public function getAllHomeworks()
     {
         return $this->hasMany(Homework::class);
     }
