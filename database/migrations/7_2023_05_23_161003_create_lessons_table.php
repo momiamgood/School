@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->string('path');
-            $table->string('filename');
-            $table->foreignId('lesson_id')->nullable()->references('id')->on('lessons');
-            $table->foreignId('homework_id')->nullable()->references('id')->on('homework');
+            $table->string('name');
+            $table->text('text');
+        });
+
+        Schema::table('lessons', function($table)
+        {
+            $table->foreignId('course_id')
+                ->references('id')->on('courses')
+                ->onDelete('cascade');
         });
     }
 
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('lessons');
     }
 };

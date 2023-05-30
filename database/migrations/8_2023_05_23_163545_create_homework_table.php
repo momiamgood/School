@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('homework', function (Blueprint $table) {
             $table->id();
             $table->string('disc');
-            $table->foreignId('lesson_id')->references('id')->on('lessons');
-            $table->foreignId('user_id')->references('id')->on('users');
+        });
+
+        Schema::table('homework', function($table)
+        {
+            $table->foreignId('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

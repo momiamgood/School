@@ -38,19 +38,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-
-
 // Курсы
 
-Route::match(['get','post'],'/course/add', [CourseController::class, 'store']);
-Route::controller(CourseController::class)->group(function () {
+Route::match(['get','post'],'/course/add', [CourseController::class, 'store'])->middleware('auth');
+Route::controller(CourseController::class)->middleware('auth')->group(function () {
     Route::get('/course/{id}', 'show')->name('course');
     Route::get('course/', 'index')->name('courses');
 });
 // Уроки
-Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store']);
-Route::controller(LessonController::class)->group(function () {
+Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store'])->middleware('auth');
+Route::controller(LessonController::class)->middleware('auth')->group(function () {
     Route::match(['get','post'],'/lesson/{id}', 'show');
 
     //Route::get('/course/', 'index');

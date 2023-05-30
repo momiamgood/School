@@ -20,6 +20,13 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::table('users', function($table)
+        {
+            $table->foreignId('role_id')
+                ->references('id')->on('roles')
+                ->onDelete('cascade');
+        });
     }
 
     /**

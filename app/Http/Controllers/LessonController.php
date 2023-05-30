@@ -19,7 +19,6 @@ class LessonController extends Controller
             $lesson->name = $request->input('name');
             $lesson->text = $request->input('text');
             $lesson->course_id = $request->input('course_id');
-            $lesson->save();
 
             $files = [];
             if($request->hasFile('files'))
@@ -35,11 +34,10 @@ class LessonController extends Controller
                     $model->path = $path;
                     $model->filename = $filenameWithExt;
                     $model->lesson_id = $lesson->id;
-                    $model->save();
                 }
             }
 
-
+            $lesson->save();
             return redirect()->route('courses');
         } else
             return view('lesson.create',[
@@ -55,10 +53,12 @@ class LessonController extends Controller
             $homework->user_id = $request->input('user_id');
             $homework->save();
         }
+
         return view('lesson.view', [
             'lesson' => Lesson::findOrFail($id),
             'hmws' => Lesson::findOrFail($id)->getAllHomeworks,
             'id'=> $id,
+            'file_list' => File::find($id)->getLessonFiles || 'no files'
         ]);
     }
 }

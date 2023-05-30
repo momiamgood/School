@@ -21,4 +21,8 @@ class Lesson extends Model
     {
         return $this->hasMany(Homework::class);
     }
+
+    public function getLessonFiles() {
+        return $this->hasMany(File::class) || 'no files';
+    }
 }

@@ -22,6 +22,7 @@ class CourseController extends Controller
         return view('course.profile', [
             'course' => Course::findOrFail($id),
             'lessons' => Course::findOrFail($id)->getAllLesson,
+            'courses' => Course::all(),
         ]);
     }
 
@@ -36,13 +37,13 @@ class CourseController extends Controller
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
                 $extention = $request->file('img')->getClientOriginalExtension();
                 $fileNameToStore = "img/" . $filename . "_" . time() . "." . $extention;
-                $path = $request->file('img')->storeAs('public/', $fileNameToStore);
+                $path = $request->file('img')->storeAs('public', $fileNameToStore);
             }
 
             $course->img = $path;
             $course->save();
             return redirect()->route('courses');
         } else
-            return view('course.create');
+            return view('course.create', ['courses' => Course::all()]);
     }
 }
