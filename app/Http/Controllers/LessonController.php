@@ -58,7 +58,7 @@ class LessonController extends Controller
             'lesson' => Lesson::findOrFail($id),
             'hmws' => Lesson::findOrFail($id)->getAllHomeworks,
             'id'=> $id,
-            'file_list' => File::find($id)->getLessonFiles || 'no files'
+            'file_list' => File::findOrFail($id)->getLessonFiles || 'no files'
         ]);
     }
 }

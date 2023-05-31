@@ -40,13 +40,13 @@ Route::middleware('auth')->group(function () {
 
 // Курсы
 
-Route::match(['get','post'],'/course/add', [CourseController::class, 'store'])->middleware('auth');
+Route::match(['get','post'],'/course/add', [CourseController::class, 'store'])->middleware('auth','admin');
 Route::controller(CourseController::class)->middleware('auth')->group(function () {
     Route::get('/course/{id}', 'show')->name('course');
     Route::get('course/', 'index')->name('courses');
 });
 // Уроки
-Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store'])->middleware('auth');
+Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store'])->middleware('auth','admin');
 Route::controller(LessonController::class)->middleware('auth')->group(function () {
     Route::match(['get','post'],'/lesson/{id}', 'show');
 

@@ -9,7 +9,7 @@
     </nav>
 
     <h1>Уроки</h1>
-
+    <a href="/lesson/create" class="btn btn-outline-primary">Добавить урок</a>
     @isset($lessons)
         @foreach($lessons as $lesson)
             <div class="list-group">
