@@ -31,7 +31,7 @@ class LessonController extends Controller
                     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
                     $extention = $file->extension();
                     $fileNameToStore = "files/".$filename."_".time().".".$extention;
-                    $path = $file->storeAs('public', $fileNameToStore);
+                    $path = $file->storeAs('public/', $fileNameToStore);
                     $model->path = $path;
                     $model->filename = $filenameWithExt;
                     $model->lesson_id = $lesson->id;
@@ -54,6 +54,23 @@ class LessonController extends Controller
             $homework->lesson_id = $request->input('lesson_id');
             $homework->user_id = $request->input('user_id');
             $homework->save();
+
+            if($request->hasFile('files'))
+            {
+                $files[] = $request->allFiles();
+                foreach ($request->file('files') as $file) {
+                    $model = new File();
+                    $filenameWithExt = $file->getClientOriginalName();
+                    $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                    $extention = $file->extension();
+                    $fileNameToStore = "files/".$filename."_".time().".".$extention;
+                    $path = $file->storeAs('public/', $fileNameToStore);
+                    $model->path = $path;
+                    $model->filename = $filenameWithExt;
+                    $model->homework_id = $homework->id;
+                    $model->save();
+                }
+            }
         }
 
         return view('lesson.view', [
@@ -61,6 +78,7 @@ class LessonController extends Controller
             'hmws' => Lesson::findOrFail($id)->getAllHomeworks,
             'id'=> $id,
             'file_list' => Lesson::findOrFail($id)->getLessonFiles,
+            //'home_file_list' => Homework::findOrFail($id)->getLessonFiles,
         ]);
     }
 }

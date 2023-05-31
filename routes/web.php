@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\HomeworkController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -45,6 +46,9 @@ Route::controller(CourseController::class)->middleware('auth')->group(function (
     Route::get('/course/{id}', 'show')->name('course');
     Route::get('course/', 'index')->name('courses');
 });
+//домашка
+Route::match(['get','post'],'/lesson/{id}/homework_list', [HomeworkController::class, 'index']);
+Route::match(['get','post'],'/lesson/{id}/homework_list/{hwid}', [HomeworkController::class, 'show']);
 // Уроки
 Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store'])->middleware('auth','admin');
 Route::controller(LessonController::class)->middleware('auth')->group(function () {

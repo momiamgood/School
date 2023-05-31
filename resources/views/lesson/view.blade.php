@@ -33,6 +33,8 @@
                 <label class="form-label">ответ</label>
                 <textarea name="disc" placeholder="Ответ"></textarea>
             </div>
+            <label class="form-label">Дополинительные материалы</label>
+            <input type="file" name="files[]" class="form-control"  multiple>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <!-- Добавить отображение отправленного ответа, типа ответ отправлен да... -->
