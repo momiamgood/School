@@ -8,7 +8,7 @@
             @foreach($courses as $course)
                 <div class="card" style="width: 18rem;">
                     @isset($course->img)
-                        <img src="{{ 'public/storage' }}" class="card-img-top" alt="Обложка курса">
+                        <img src="{{ 'public/storage/'. $course->img }}" class="card-img-top" alt="Обложка курса">
                     @endisset
                     <div class="card-body">
                         <h5 class="card-title">{{ $course->name }}</h5>

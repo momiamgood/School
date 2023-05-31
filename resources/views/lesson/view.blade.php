@@ -15,7 +15,7 @@
     <p>{{$lesson->text}}</p><br>
     @isset($file_list)
         @foreach($file_list as $file)
-            <a href="{{ asset('/storage/' . $file->path ) }}">{{ $file->filename }}</a>
+            <a href="{{ asset('/storage/' . $file->path  ) }}">{{ $file->filename }}</a>
         @endforeach
     @endisset
 

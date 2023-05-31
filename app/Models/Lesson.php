@@ -23,6 +23,6 @@ class Lesson extends Model
     }
 
     public function getLessonFiles() {
-        return $this->hasMany(File::class) || 'no files';
+        return $this->hasMany(File::class);
     }
 }
