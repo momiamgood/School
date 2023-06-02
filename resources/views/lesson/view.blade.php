@@ -21,7 +21,7 @@
     @endisset
 
     @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
-        <a href="/lesson/{{$lesson->id}}/homework_list">Смотреть ответы -></a>
+        <a href="/lesson/{{ $lesson->id }}/homework_list" type="button" class="btn btn-outline-primary">Смотреть ответы</a>
     @endif
 
     @if(Auth::user()->role_id == 3)
@@ -38,8 +38,8 @@
             <button type="submit" class="btn btn-primary">Отправить</button>
         </form>
 
-        @if($homework)
+        @isset($homework)
             <b><mark>Отправлено для оценивания</mark></b>
-        @endif
+        @endisset
     @endif
 @endsection

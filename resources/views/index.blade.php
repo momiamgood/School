@@ -49,7 +49,7 @@
         <h2>Наши курсы</h2>
         <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 50px">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src=""
+                <img class="card-img-top" src="{{ Storage::url('public/images/img/Отызв.png')}}"
                      alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Группа продленного для.<br> 1 - 3 класс</h5>
@@ -57,15 +57,15 @@
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://www.ochkov.net/images/2018/07/11/76849.text.3937.jpg"
+                <img class="card-img-top" src="{{ Storage::url('public/images/img/login_bg.png')}}"
                      alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Группа продленного для.<br> 1 - 3 класс</h5>
+                    <h5 class="card-title">Группа продленного для.<br> 8 - 9 класс</h5>
                     <a href="/register" class="btn btn-primary">Записаться</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://www.ochkov.net/images/2018/07/11/76849.text.3937.jpg"
+                <img class="card-img-top" src="{{ Storage::url('public/images/img/signup_bg.png')}}"
                      alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Группа продленного для.<br> 1 - 3 класс</h5>

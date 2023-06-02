@@ -51,7 +51,6 @@ Route::match(['get','post'],'/lesson/{id}/homework_list/{hwid}', [HomeworkContro
 Route::match(['get','post'],'/lesson/create', [LessonController::class, 'store'])->middleware('auth','admin');
 Route::controller(LessonController::class)->middleware('auth')->group(function () {
     Route::match(['get','post'],'/lesson/{id}', 'show');
-
     //Route::get('/course/', 'index');
     //Route::post('/orders', 'store');
 });

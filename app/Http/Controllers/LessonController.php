@@ -73,19 +73,12 @@ class LessonController extends Controller
             }
         }
 
-        if (Homework::where('lesson_id', $id)){
-            $homework_check = true;
-        }
-        else {
-            $homework_check = false;
-        }
-
         return view('lesson.view', [
             'lesson' => Lesson::findOrFail($id),
             'hmws' => Lesson::findOrFail($id)->getAllHomeworks,
             'id' => $id,
             'file_list' => Lesson::findOrFail($id)->getLessonFiles,
-            'homework' => $homework_check
+            'homework' => Homework::where('lesson_id', $id)->get()
         ]);
     }
 }
