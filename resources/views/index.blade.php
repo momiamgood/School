@@ -6,6 +6,7 @@
             <h1 style="font-size: 5em">Онлайн образование для всех</h1>
             <h3 style="margin-top: 50px">Вот уже 5 лет мы помогаем растить смышлённых и креативных детей.</h3>
             <a type="button" href="/register" class="btn btn-primary btn-lg mt-5">Зарегистрироваться</a>
+            <a type="button" href="/login" class="btn btn-outline-primary btn-lg mt-5">Войти</a>
         </div>
         <img src="{{ Storage::url('public/images/img/шляпа_index.png')}}">
     </div>
@@ -48,7 +49,7 @@
         <h2>Наши курсы</h2>
         <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 50px">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://www.ochkov.net/images/2018/07/11/76849.text.3937.jpg"
+                <img class="card-img-top" src=""
                      alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Группа продленного для.<br> 1 - 3 класс</h5>

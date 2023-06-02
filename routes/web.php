@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeworkController;
@@ -32,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::match(['get','post'],'logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout');
 
 // Курсы
 

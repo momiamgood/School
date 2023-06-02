@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\User;
+use App\Models\User_Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -14,7 +15,7 @@ class CourseController extends Controller
     public function index(): View
     {
         return view('course.index', [
-            'courses' => Course::find('id', [User::findOrFail(Auth::user()->id)->getCourses->course_id])
+            'courses' =>  Course::all()
         ]);
     }
 
