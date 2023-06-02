@@ -27,9 +27,8 @@ class HomeworkController extends Controller
                 'homework'=> Homework::findOrFail($hwid),
                 'file_list'=> Homework::findOrFail($hwid)->gethomeworksFiles,
                 'user' => User::findOrFail(Homework::findOrFail($hwid)->user_id),
-
             ]
-
         );
     }
 }
+
