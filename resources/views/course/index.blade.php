@@ -2,13 +2,13 @@
 
 @section('main_content')
 
-    @if(Auth::user()->role_id == 2)
+    @if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3)
         <h1>Мои курсы</h1> <!-- Отображение для юзера: учитель, ученик -->
         <div class="courses" style="display: flex; flex-direction: row; flex-wrap: wrap;gap: 30px; margin-top: 30px">
             @foreach($courses as $course)
                 <div class="card" style="width: 18rem;">
                     @isset($course->img)
-                        <img src="{{ 'public/storage/'. $course->img }}" class="card-img-top" alt="Обложка курса">
+                        <img src="{{ Storage::url($course->img) }}" class="card-img-top" alt="Обложка курса">
                     @endisset
                     <div class="card-body">
                         <h5 class="card-title">{{ $course->name }}</h5>
@@ -21,8 +21,8 @@
 
     @if(Auth::user()->role_id == 1)
         <!-- Отображение для админа  -->
-        <h1>Все курсы</h1>
-        <a href="/course/add" class="btn btn-outline-primary">Добавить курс</a>
+        <h1 style="margin-top: 30px">Все курсы</h1>
+        <a href="/course/add" class="btn btn-outline-primary" style="margin-top: 30px">Добавить курс</a>
         <div class="courses" style="display: flex; flex-direction: row; flex-wrap: wrap;gap: 30px; margin-top: 30px">
             @foreach($courses as $course)
                 <div class="card" style="width: 18rem;">

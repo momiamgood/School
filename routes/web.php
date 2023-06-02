@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ProfileController;
@@ -19,14 +20,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [Controller::class, 'main_page']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -4,9 +4,9 @@ import {Link} from '@inertiajs/vue3';</script>
 
 <template>
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div>
-            <Link href="/" class="link-center">
-                <ApplicationLogo class="w-20 h-20 fill-current text-gray-500"/>
+        <div class="link-center" style="box-sizing: border-box">
+            <Link href="/">
+                <ApplicationLogo class=" fill-current text-gray-500"/>
             </Link>
         </div>
 
@@ -19,8 +19,4 @@ import {Link} from '@inertiajs/vue3';</script>
 </template>
 
 <style>
-.link-center {
-    display: flex;
-    justify-content: center;
-}
 </style>

@@ -17,7 +17,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="/">Умникум</a>
+                <a class="navbar-brand" href="/" style="align-self: center"><img src="{{ Storage::url('public/images/img/logo.jpg')}}" style="width: 40px;height: 40px; margin-right: 20px">Умникум</a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="/course">Мои курсы<span class="sr-only"></span></a>
