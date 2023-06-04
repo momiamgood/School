@@ -14,14 +14,17 @@
     <h1 style="margin-top: 30px;">{{$lesson->name}}</h1><br>
     <p>{{$lesson->text}}</p><br>
     <h4>Дополнительные материалы:</h4>
-    @isset($file_list)
+    @if($file_list)
         @foreach($file_list as $file)
             <a href="{{Storage::url($file->path)}}">{{ $file->filename }}</a>
         @endforeach
+    @else
+        <p>Нет дополнительных материалов</p>
     @endisset
 
     @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
-        <a href="/lesson/{{ $lesson->id }}/homework_list" type="button" class="btn btn-outline-primary">Смотреть ответы</a>
+        <a href="/lesson/{{ $lesson->id }}/homework_list" type="button" class="btn btn-outline-primary">Смотреть
+            ответы</a>
     @endif
 
     @if(Auth::user()->role_id == 3)
@@ -37,9 +40,5 @@
             </div>
             <button type="submit" class="btn btn-primary">Отправить</button>
         </form>
-
-        @isset($homework)
-            <b><mark>Отправлено для оценивания</mark></b>
-        @endisset
     @endif
 @endsection

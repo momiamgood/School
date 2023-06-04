@@ -73,12 +73,14 @@ class LessonController extends Controller
             }
         }
 
+
+        $files = Lesson::findOrFail($id)->getLessonFiles;
+
         return view('lesson.view', [
             'lesson' => Lesson::findOrFail($id),
             'hmws' => Lesson::findOrFail($id)->getAllHomeworks,
             'id' => $id,
-            'file_list' => Lesson::findOrFail($id)->getLessonFiles,
-            'homework' => Homework::where('lesson_id', $id)->get()
+            'file_list' => $files,
         ]);
     }
 }
